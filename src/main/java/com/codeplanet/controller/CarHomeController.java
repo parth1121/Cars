@@ -4,19 +4,23 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.codeplanet.model.Vehicle;
+import com.codeplanet.service.CarHomeService;
 
 @Controller
 public class CarHomeController {
 
+	@Autowired
+	CarHomeService carHomeService;
+	
 	@GetMapping("/")
-	public String home(HttpServletRequest req) {
-		ArrayList l = new ArrayList();
-		l.add("hello1");
-		l.add("hello2");
-		l.add("hello3");
-		req.setAttribute("l",l);
+	public String home(HttpServletRequest req) throws Exception {
+		ArrayList<Vehicle> vehicleList = carHomeService.getCarDetails();
+		req.setAttribute("vehicleList", vehicleList);
 		return "home1";
 	}
 	

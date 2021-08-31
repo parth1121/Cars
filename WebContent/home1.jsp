@@ -171,6 +171,7 @@
         <!-- Slick slider area start -->
         <div class="slick-slider-area clearfix">
             <div class="row slick-carousel" data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+				<c:forEach var="i" items="${vehicleList}">
                 <div class="slick-slide-item">
                     <div class="car-box-3">
                         <div class="car-thumbnail">
@@ -179,7 +180,7 @@
                                 <div class="price-box">
                                     <span class="del"><del>$805.00</del></span>
                                     <br>
-                                    <span>$780.00</span>
+                                    <span>${i.askingPrice}</span>
                                 </div>
                                 <img class="d-block w-100" src="img/car/car-1.jpg" alt="car">
                             </a>
@@ -210,7 +211,7 @@
                         </div>
                         <div class="detail">
                             <h1 class="title">
-                                <a href="car-details.html">Lamborghini Huracán</a>
+                                <a href="car-details.html">${i.vehicleName}</a>
                             </h1>
                             <div class="location">
                                 <a href="car-details.html">
@@ -228,6 +229,8 @@
                         </div>
                     </div>
                 </div>
+                </c:forEach>
+               
                 <div class="slick-slide-item">
                     <div class="car-box-3">
                         <div class="car-thumbnail">
