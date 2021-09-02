@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.codeplanet.model.Team;
 import com.codeplanet.model.Vehicle;
 import com.codeplanet.repository.CarHomeRepository;
 
@@ -16,6 +17,10 @@ public class CarHomeService {
 
 	public ArrayList<Vehicle> getCarDetails() throws Exception {
 		return carHomeRepository.getCarDetails();
+	}
+
+	public ArrayList<Team> getTeam() {
+		return carHomeRepository.getTeam();
 	}
 
 }
